@@ -1,26 +1,20 @@
 package kz.intexsoft.library.entity;
 
-import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "library")
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
 public class Library {
 
-    private String name;
-    private Long id;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getId() {
-        return id;
-    }
+    private Long id;
+
+    @Column(name = "name", nullable = false, unique = true)
+    private String name;
 }

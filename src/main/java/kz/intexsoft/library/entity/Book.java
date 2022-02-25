@@ -3,6 +3,7 @@ package kz.intexsoft.library.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "book")
@@ -15,11 +16,24 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "author", nullable = false)
     private String author;
 
-    private String date;
+    @Column(name = "order_date")
+    private LocalDate orderDate;
 
-    private String library;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "library_id", nullable = false)
+    private Library library;
+
+    public Library getLibrary(){
+        return library;
+    }
+
+    public void setLibrary(Library library){
+        this.library = library;
+    }
 }

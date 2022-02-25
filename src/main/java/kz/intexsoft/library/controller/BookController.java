@@ -2,7 +2,10 @@ package kz.intexsoft.library.controller;
 
 import kz.intexsoft.library.entity.Book;
 import kz.intexsoft.library.service.BookService;
+import kz.intexsoft.library.service.impl.BookServiceImpl;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api")
@@ -20,8 +23,14 @@ public class BookController {
         return bookService.create(book);
     }
 
-    @PostMapping("/books")
-    public Book update(@RequestBody Book book) {
+    @GetMapping("/books")
+    public List<Book> find(){
+        return null;
+    }
+
+    @PutMapping("/order-book")
+    public Book order(@RequestBody Book book) {
         return bookService.order(book);
     }
+
 }
