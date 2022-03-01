@@ -1,6 +1,7 @@
 package kz.intexsoft.library.service;
 
 import kz.intexsoft.library.entity.Book;
+import kz.intexsoft.library.exception.BookNotFoundException;
 
 import java.util.List;
 
@@ -8,9 +9,11 @@ public interface BookService {
 
     Book create(Book book);
 
-    List<Book> find();
+    List<Book> findBookByName(String name) throws BookNotFoundException;
 
-    Book order(Book book);
+    List<Book> findBookByAuthor(String author) throws BookNotFoundException;
 
-    Book reset(Book book);
+    String order(Long id);
+
+    String reset(Long id);
 }
