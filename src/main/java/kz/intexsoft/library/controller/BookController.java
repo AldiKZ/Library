@@ -1,7 +1,7 @@
 package kz.intexsoft.library.controller;
 
 import kz.intexsoft.library.exception.BookNotFoundException;
-import kz.intexsoft.library.service.impl.BookServiceImpl;
+import kz.intexsoft.library.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api")
 public class BookController {
 
-    private final BookServiceImpl bookService;
+    private final BookService bookService;
 
-    public BookController(BookServiceImpl bookService) {
+    public BookController(BookService bookService) {
         this.bookService = bookService;
     }
 
+
+//    @PostMapping("/books")
+//    public ResponseEntity<BookDto> create(@RequestBody BookDto bookDto) {
+//        return ResponseEntity.ok(bookService.create(bookDto));
+//    }
 
     @GetMapping("/books-author")
     public ResponseEntity<?> findBookByAuthor(@RequestParam String author) throws BookNotFoundException {
@@ -29,11 +34,11 @@ public class BookController {
 
     @GetMapping(value = "/book-order/{id}")
     public ResponseEntity<String> orderBook(@PathVariable Long id) {
-        return new ResponseEntity<String >(bookService.order(id), HttpStatus.OK);
+        return new ResponseEntity<String>(bookService.order(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "book-reset/{id}")
-    public ResponseEntity<String> resetBook(@PathVariable Long id){
-        return  new ResponseEntity<String>(bookService.reset(id), HttpStatus.OK);
+    public ResponseEntity<String> resetBook(@PathVariable Long id) {
+        return new ResponseEntity<String>(bookService.reset(id), HttpStatus.OK);
     }
 }
