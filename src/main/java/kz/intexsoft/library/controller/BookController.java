@@ -1,5 +1,6 @@
 package kz.intexsoft.library.controller;
 
+import kz.intexsoft.library.entity.Book;
 import kz.intexsoft.library.exception.BookNotFoundException;
 import kz.intexsoft.library.service.BookService;
 import org.springframework.http.HttpStatus;
@@ -17,10 +18,11 @@ public class BookController {
     }
 
 
-//    @PostMapping("/books")
-//    public ResponseEntity<BookDto> create(@RequestBody BookDto bookDto) {
-//        return ResponseEntity.ok(bookService.create(bookDto));
-//    }
+    @PostMapping("/book-add")
+    public ResponseEntity<String> create(@RequestBody Book book) {
+        bookService.create(book);
+        return ResponseEntity.ok("Book '"+book.getName()+"' successfully added!");
+    }
 
     @GetMapping("/books-author")
     public ResponseEntity<?> findBookByAuthor(@RequestParam String author) throws BookNotFoundException {
