@@ -4,15 +4,24 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="23022022171002-02" author="Aldik">
+    <changeSet id="22032022141406" author="Aldik">
 
-        <createTable tableName="library">
-            <column name="id" type="BIGINT" autoIncrement="true">
+        <createTable tableName="user">
+
+            <column name="id" type="bigint" autoIncrement="true" >
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
-            <column name="name" type="VARCHAR(255)">
+            <column name="name"  type="varchar(50)">
                 <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="password" type="varchar(128)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="role_name"  type="varchar(50)">
+                <constraints nullable="false"/>
             </column>
 
         </createTable>

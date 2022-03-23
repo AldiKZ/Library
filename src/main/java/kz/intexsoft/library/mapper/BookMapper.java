@@ -2,10 +2,8 @@ package kz.intexsoft.library.mapper;
 
 import kz.intexsoft.library.dto.BookDto;
 import kz.intexsoft.library.entity.Book;
-import kz.intexsoft.library.entity.Library;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
