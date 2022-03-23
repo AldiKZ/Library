@@ -1,0 +1,13 @@
+package kz.intexsoft.library.repository;
+
+import kz.intexsoft.library.entity.Library;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface LibraryRepository extends JpaRepository<Library, Long> {
+    List<Library> findAllByName(String name);
+    Library findByName(String libraryName);
+}

@@ -1,0 +1,22 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="25022022113004-04" author="Aldik">
+        <sql>
+            INSERT INTO book(name, author, order_date, library_id)
+            VALUES
+            ('Foundation', 'Asimov', null, (select id from library where name = 'Karbysheva')),
+            ('Margarita', 'Bulgakov', null, (select id from library where name = 'Karbysheva')),
+            ('Metel', 'Pushkin', null, (select id from library where name = 'Lenina')),
+            ('Cryptography', 'Asimov', null, (select id from library where name = 'GRSU')),
+            ('Knight', 'Trevor', null, (select id from library where name = 'GRSU')),
+            ('Java', 'Oreilly', null, (select id from library where name = 'Lenina')),
+            ('Warckraft', 'Blizzard', null, (select id from library where name = 'Lenina')),
+            ('Star', 'Alex', null, (select id from library where name = 'Karbysheva')),
+            ('Porche', 'Petrov', null, (select id from library where name = 'GRSU')),
+            ('RS5', 'Audi', null, (select id from library where name = 'Karbysheva'))
+        </sql>
+    </changeSet>
+</databaseChangeLog>
